@@ -1,4 +1,5 @@
 server:
+  port: 9296
   servlet:
     context-path: /config-server
 management:
@@ -6,11 +7,20 @@ management:
     web:
       exposure:
         include: '*'
+health:
+  config:
+    enabled: false
+
 spring:
+  application:
+    name: config-server
   cloud:
+    bootstrap:
+      enabled: true
     config:
       server:
         git:
-          uri: https://github.com/IBS-Skillset/configuration
-  application:
-    name: config-server
+          uri: https://github.com/IBS-Skillset/Config
+          clone-on-start: true
+
+
