@@ -1,0 +1,18 @@
+spring:
+  cloud:
+    bootstrap:
+      enabled: true
+    config:
+      server:
+        git:
+          uri: https://github.com/IBS-Skillset/Config
+          clone-on-start: true
+eureka:
+  instance:
+    hostname: config-server
+    prefer-ip-address: true
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: ${eureka.service-url.default}
