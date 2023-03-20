@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: config-server-deploy
+  labels:
+    name: config-server-deploy
+    app: my-stays
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: config-server-pod
+      app: my-stays
+  template:
+    metadata:
+      name: config-server-pod
+      labels:
+        name: config-server-pod
+        app: my-stays
+    spec:
+      containers:
+        - name: config-server
+          image: docker.io/library/config-server:latest
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 80
+          env:
+            - name: CONFIG_SERVER_URI
+              valueFrom:
+                configMapKeyRef:
+                  name: config-server
+                  key: config-server-uri

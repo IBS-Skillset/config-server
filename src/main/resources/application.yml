@@ -20,7 +20,7 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/IBS-Skillset/Config
+          uri: ${CONFIG_SERVER_URI}
           clone-on-start: true
 
 
