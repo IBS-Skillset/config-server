@@ -1,32 +1,33 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: config-server-deploy
+  name: config-server-deployment
   labels:
-    name: config-server-deploy
-    app: my-stays
+    app: config-server
 spec:
   replicas: 1
   selector:
     matchLabels:
-      name: config-server-pod
-      app: my-stays
+      app: config-server
   template:
     metadata:
-      name: config-server-pod
       labels:
-        name: config-server-pod
-        app: my-stays
+        app: config-server
     spec:
       containers:
         - name: config-server
-          image: docker.io/library/config-server:latest
+          image: docker.io/library/spring-cloud-config-server:0.0.1-SNAPSHOT
           imagePullPolicy: Never
           ports:
-            - containerPort: 80
+            - containerPort: 9296
           env:
-            - name: CONFIG_SERVER_URI
+            - name: eureka.service-url.default
               valueFrom:
                 configMapKeyRef:
                   name: config-server
-                  key: config-server-uri
+                  key: eureka.service-url.default
+            - name: eureka.host-name
+              valueFrom:
+                configMapKeyRef:
+                  name: config-server
+                  key: eureka.host-name

@@ -15,12 +15,7 @@ spring:
   application:
     name: config-server
   cloud:
-    bootstrap:
-      enabled: true
-    config:
-      server:
-        git:
-          uri: ${CONFIG_SERVER_URI}
-          clone-on-start: true
-
-
+    kubernetes:
+      config:
+        enabled: true
+        name: ${spring.application.name}

@@ -3,4 +3,5 @@ kind: ConfigMap
 metadata:
   name: config-server
 data:
-  config-server-uri: https://github.com/IBS-Skillset/Config
+  eureka.service-url.default: http://service-registry-service:8761/eureka/
+  eureka.host-name: service-registry-service
