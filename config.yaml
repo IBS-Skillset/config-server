@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: config-server
+data:
+  eureka.service-url.default: http://service-registry-service:8761/eureka/
+  eureka.host-name: service-registry-service

@@ -15,12 +15,7 @@ spring:
   application:
     name: config-server
   cloud:
-    bootstrap:
-      enabled: true
-    config:
-      server:
-        git:
-          uri: https://github.com/IBS-Skillset/Config
-          clone-on-start: true
-
-
+    kubernetes:
+      config:
+        enabled: true
+        name: ${spring.application.name}
