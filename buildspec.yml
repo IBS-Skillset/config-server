@@ -6,7 +6,7 @@ phases:
       java: corretto11
   pre_build:
     commands:
-      - echo Logging in to Amazon ECR...
+      - echo Logging in to Amazon ECR..
       - echo $AWS_DEFAULT_REGION
       - echo $AWS_ACCOUNT_ID
       - echo $CODEBUILD_RESOLVED_SOURCE_VERSION
