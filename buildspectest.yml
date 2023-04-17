@@ -34,16 +34,16 @@ phases:
         if [ "$EXITCODE" = "0" ]; then
           gh pr merge $TAG --admin --merge
           git init
-          git remote add origin https://${SECRET_USERNAME}:${SECRET_TOKEN}@github.com/IBS-Skillset/master-source-build.git
+          git remote add neworigin https://${SECRET_USERNAME}:${SECRET_TOKEN}@github.com/IBS-Skillset/master-source-build.git
           git config --global user.email $SECRET_EMAIL
           git config --global user.name $SECRET_USERNAME
           git checkout -B main
           git fetch --all
-          git reset --hard origin/main
+          git reset --hard neworigin/main
           printf "Commit %s in config-server.\n" $CODEBUILD_WEBHOOK_TRIGGER >> commitList.txt
           git add .
-          git commit -m "Adding config-server PR to coomitlist ${CODEBUILD_WEBHOOK_TRIGGER}"
-          git push origin main
+          git commit -m "Adding config-server PR to commitlist ${CODEBUILD_WEBHOOK_TRIGGER}"
+          git push neworigin main
         else
           gh pr comment $TAG --body "The tests have failed. Please check the logs and fix the issues."
         fi
