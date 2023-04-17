@@ -40,7 +40,7 @@ phases:
           git checkout -B main
           git fetch --all
           git reset --hard neworigin/main
-          printf "Commit %s in config-server.\n" $CODEBUILD_WEBHOOK_TRIGGER >> commitList.txt
+          printf "\nconfig-server" >> commitList.txt
           git add .
           git commit -m "Adding config-server PR to commitlist ${CODEBUILD_WEBHOOK_TRIGGER}"
           git push neworigin main
