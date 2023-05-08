@@ -41,7 +41,7 @@ phases:
           git fetch --all
           git reset --hard neworigin/main
           printf "\nconfig-server" >> commitList.txt
-          git add .
+          git add commitList.txt
           git commit -m "Adding config-server PR to commitlist ${CODEBUILD_WEBHOOK_TRIGGER}"
           git push neworigin main
         else
