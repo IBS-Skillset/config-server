@@ -6,7 +6,6 @@ phases:
       java: corretto11
   pre_build:
     commands:
-      - echo Logging in to Amazon ECR..
       - echo $AWS_DEFAULT_REGION
       - echo $AWS_ACCOUNT_ID
       - echo $CODEBUILD_RESOLVED_SOURCE_VERSION
@@ -28,7 +27,6 @@ phases:
       - docker tag $REPOSITORY_URI:latest $REPOSITORY_URI:$IMAGE_TAG
   post_build:
     commands:
-      - echo Build completed on `date`
       - echo Pushing the Docker images...
       - docker push $REPOSITORY_URI:$IMAGE_TAG
       - echo Writing image definitions file...

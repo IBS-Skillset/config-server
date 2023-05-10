@@ -16,3 +16,4 @@ eureka:
     fetchRegistry: true
     serviceUrl:
       defaultZone: ${eureka.service-url.default}
+
