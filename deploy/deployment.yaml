@@ -24,7 +24,7 @@ spec:
     spec:
       containers:
         - name: config-server-api
-          image: 306472407007.dkr.ecr.ap-south-1.amazonaws.com/ibs-skillset-happystays/config-server:fb671a5
+          image: 306472407007.dkr.ecr.ap-south-1.amazonaws.com/ibs-skillset-happystays/config-server:bf4e313
           imagePullPolicy: Always
           ports:
             - name: http
