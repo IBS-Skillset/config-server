@@ -8,7 +8,7 @@ metadata:
     app: config-server
 spec:
   replicas: 1
-  minReadySeconds: 10
+  minReadySeconds: 5
   strategy:
     type: RollingUpdate
     rollingUpdate:
